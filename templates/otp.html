@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% block content  %}
+
+<div class="display-middle">
+<form class="container dark-persian-blue" method="post"> {% csrf_token %}
+  <div class="xlarge hide-small text-spring-green">Enter the OTP</div>
+  <div class="hide-large hide-medium text-spring-green large">Enter the OTP</div>
+
+  <p><label style="opacity: 0.7">An otp is send to your email address enter for validation of your email</label> </p>
+  <input class="input border dark-persian-blue focus-input" maxlength="4" required name="otp" type="text"></p>
+  <input type="submit" value="Submit" class="btn card padding-large hover-spring-green persian-blue" >
+    <br>
+    <h2 class="text-spring-green"><b>{{err}}</b></h2>
+</form>
+</div>
+{% endblock%}

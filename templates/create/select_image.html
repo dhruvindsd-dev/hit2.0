@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% block content %}
+<!-- Header -->
+<div class="animate-top">
+    <div class="header " style="font-family: 'Lato', sans-serif;font-size: 20px; margin: auto;width: 60%;">
+        <p class="text-spring-green hide-large hide-medium">Select a image for your hit</p>
+        <p class="text-spring-green  xxlarge hide-small">Select a image for your hit</p>
+
+        <input class="input focus-input border dark-persian-blue" name="img_tag" type="text" placeholder="Enter a keyword to get images on that topic" id="myInput">
+        <button class="button hover-spring-green persian-blue margin-top" onclick="getInputValue();" value="Add hit" style="border-radius: 10px"> <i class="fa fa-search margin-right"></i>Search </button>
+    </div>
+    <div>
+        {% if img_found %}
+    </div>
+    <!-- Photo Grid -->
+    <div class="row">
+        <div class="column">
+            {% for i in c0 %}
+            <img onclick="location.href='/save/{{i.1}}';" class="grid-hover zoom" src="{{i.0.0}}" style="width:100%"> {% endfor %}
+        </div>
+        <div class="column">
+            {% for i in c1 %}
+            <img class="grid-hover zoom" onclick="location.href='/save/{{i.1}}';" src="{{i.0.0}}" style="width:100%"> {% endfor %}
+        </div>
+        <div class="column">
+            {% for i in c2 %}
+            <img class="grid-hover zoom " onclick="location.href='/save/{{i.1}}';" src="{{i.0.0}}" style="width:100%"> {% endfor %}
+        </div>
+        <div class="column">
+            {% for i in c3 %}
+            <img class="grid-hover zoom" onclick="location.href='/save/{{i.1}}';" src="{{i.0.0}}" style="width:100%"> {% endfor %}
+        </div>
+    </div>
+
+    <!-- pagination  -->
+    <div class="center margin">
+        <div class=" bar  round">
+            {% for i in total_pages %}
+            <a href="{{i}}" class="bar-item button persian-blue hover-spring-green">{{i}}</a> {% endfor %}
+        </div>
+
+    </div>
+    <!-- end pagination -->
+
+    {% else %}
+    <div class="xxlarge display-middle text-spring-green " style="margin-top:300px"> Try searching another keyword</div>
+
+    {%endif%}
+</div>
+
+<script>
+    function getInputValue() {
+        // Selecting the input element and get its value 
+        var inputVal = document.getElementById("myInput").value;
+        location.href = '/img_link/' + inputVal + '/1';
+        // Displaying the value
+        // alert(inputVal);
+    }
+    var input = document.getElementById("myInput");
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            getInputValue()
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--  # title, s_description, content, hash_tags, private, created_at(automatic)
+   -->
+<form class="container animate-top" method="POST" style="font-family: 'Source Sans Pro', sans-serif; font-size: 18px">
+   {% csrf_token %}
+   <h2 class="text-spring-green"><b>{{ title }}</b>   </h2>
+   <p>
+      <label>
+   <h4>Title</h4></label>
+   <input class="input focus-input border dark-persian-blue" name="rh_title" type="text" style="width: 60%" value="{{hit.title}}" placeholder="title* " required></p>
+   <p>
+      <label>
+   <h4>S_description</h4></label>
+   <input class="input focus-input border dark-persian-blue " name="rh_s_description" type="text" style="width:80%" value="{{hit.s_description}}" placeholder="add a short description* " required>
+   </p>
+  <!--  <p>
+      <input class="checkbox" type="checkbox" name="rh_private">
+      <label class="large">Private</label>
+   </p>--> <br>
+   <p>
+      <label>
+   <h4>Content</h4></label>
+   <textarea class="input focus-input border dark-persian-blue" name="rh_content" style="width: 80% " rows="15" placeholder="your main content * ">{{hit.content}}</textarea>
+   </p>
+   <p>
+      <label>
+   <h4>Hashtags</h4></label>
+   <input class="input focus-input border dark-persian-blue " name="rh_hash_tags" type="text" style="width: 60%"  placeholder="seperate tags with hash" value="{{ hit.hash_tags}}">
+   </p>
+   <br>
+   <button class="button hover-spring-green persian-blue " type="submit" value="Add hit" style="border-radius: 10px"> Save<i class="fa fa-pencil margin-left" aria-hidden="true"></i>
+</button>
+   <br><br><br><br>
+</form>
+{% endblock %}

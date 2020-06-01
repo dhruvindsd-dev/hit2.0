@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+<!-- Header -->
+
+{% block content %} {% include 'navbar.html'%}
+
+<header class="container center padding-32 animate-top ">
+    <h1>{{book.title|title}}</h1><hr>
+    <h5>{{book.description|title}}</h5>
+</header>
+<!-- Grid -->
+<div class="auto" style="max-width:800px;"> 
+    <!-- Blog entries -->
+    <div>
+        <!-- Blog entry -->
+        {% for hit in hit %}
+        <div class="hide-large hide-medium">
+            <div class="card-4 l8 margin persian-blue animate-zoom zoom" onclick="location.href='/view/hit/{{hit.id}}';" style="cursor:pointer;">
+                <img src={{hit.img_link}} alt="Nature" style="width:100%;object-fit: cover;">
+                <div class="container persian-blue">
+                    <h3 class="text-spring-green"><b>{{hit.title|title}}</b></h3>
+                    <p>{{hit.s_description}}</p>
+                    <p class="small" style="opacity:0.5">{{hit.created_at}}
+                        <br>{{hit.hash_tags}}</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="hide-small" style= "">
+            <div class="card-4 l8 margin persian-blue animate-zoom zoom" onclick="location.href='/view/hit/{{hit.id}}';" style="cursor:pointer;">
+                <img src={{hit.img_link}} alt="Nature" style="width:100%; height: 400px;object-fit: cover;">
+                <div class="container persian-blue">
+                    <h3 class="text-spring-green"><b>{{hit.title|title}}</b></h3>
+                    <p>{{hit.s_description}}</p>
+                    <p class="small" style="opacity:0.5">{{hit.created_at}}
+                        <br>{{hit.hash_tags}}</p>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- END BLOG ENTRIES -->
+    </div>
+    <!-- Introduction menu -->
+    
+</div>
+  {% endblock %}

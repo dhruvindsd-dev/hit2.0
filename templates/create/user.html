@@ -1,0 +1,66 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<!--  <p style="font-family: 'Source Sans Pro';">CREATE YOUR ACCOUNT  </p>
+
+    <form action="" style="width: 40%" method="post">{% csrf_token %}
+      <p><input class="input padding-16" type="text" placeholder="Name" required name="username"></p>
+      <p><input class="input padding-16" type="email" placeholder="Email" required name="email"></p>
+      <p><input class="input padding-16" type="password" placeholder="password" required name="password"></p>
+      <p><input class="input padding" type="password" placeholder="confirm password" required name=""></p>
+      <p>
+        <button class="button light-grey padding-large" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </p>
+    </form> -->
+    <div class="display-middle " >
+<form class="container dark-persian-blue" method="post" onsubmit="return checkPassword(this)"> {% csrf_token %}
+  <div class="xxlarge hide-small text-spring-green">Create your account </div>
+  <div class="hide-large hide-medium text-spring-green xlarge">Create your account</div>
+
+  <p><label>User name</label>
+  <input class="input border dark-persian-blue focus-input" required name="username" type="text"></p>
+  <p><label>Email</label>
+  <input class="input border dark-persian-blue focus-input" required name="email" type="email" placeholder="an otp will be sent to this email to validate it "></p>
+  <p><label>Password</label>
+  <input class="input border dark-persian-blue focus-input" required name="password1" type="password"></p>
+  <p><label>Confirm password</label>
+  <input class="input border dark-persian-blue focus-input" required name="password2" type="password"></p>
+  <button class="button persian-blue padding-large hover-spring-green card" type="submit">
+          <i class="fa  fa-user-plus"></i> Signup
+        </button>
+    <br>
+    <h2 class="text-spring-green"><b>{{err}}</b></h2>
+</form>
+ <script> 
+          
+            // Function to check Whether both passwords 
+            // is same or not. 
+            function checkPassword(form) { 
+                password1 = form.password1.value; 
+                password2 = form.password2.value; 
+  
+                // If password not entered 
+                if (password1 == '') 
+                    alert ("Please enter Password"); 
+                      
+                // If confirm password not entered 
+                else if (password2 == '') 
+                    alert ("Please enter confirm password"); 
+                      
+                // If Not same return False.     
+                else if (password1 != password2) { 
+                    alert ("\nPassword did not match: Please try again...") 
+                    return false; 
+                } 
+  
+                // If same return True. 
+                else{ 
+                    form.submit() 
+                } 
+            } 
+        </script> 
+
+</div>
+{% endblock %}

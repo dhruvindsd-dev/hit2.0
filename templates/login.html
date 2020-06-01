@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{% block content  %}
+<!-- <form method="post" class="center display-middle">{% csrf_token %}
+
+    <input type="text" name="username" class="input border focus-input dark-persian-blue" >
+    <input type="text" name="password" class="input border focus-input dark-persian-blue" style="margin-top: 30px">
+    <input type="submit" value="print value">
+    {{err}}
+</form> -->
+<div class="display-middle">
+<form class="container dark-persian-blue" method="post"> {% csrf_token %}
+  <div class="xlarge hide-small text-spring-green">Enter your username and password</div>
+  <div class="hide-large hide-medium text-spring-green large" >Enter your username and password</div>
+
+  <p><label>User name</label>
+  <input class="input border dark-persian-blue focus-input" required name="username" type="text"></p>
+  <p><label>Password</label>
+  <input class="input border dark-persian-blue focus-input" required name="password" type="password"></p>
+  <input type="submit" value="Submit" class="btn card padding-large hover-spring-green persian-blue" >
+    <br>
+    <h2 class="text-spring-green"><b>{{err}}</b></h2>
+</form>
+</div>
+{% endblock%}

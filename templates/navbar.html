@@ -1,0 +1,102 @@
+<!-- Navbar -->
+<div class="hide-small hide-medium">
+   <div class="bar persian-blue ">
+      <a href="/home/" class="bar-item button hover-spring-green padding-medium"><i class="fa fa-home margin-right"></i>Home 
+      </a>
+      <button class="padding-medium button hover-spring-green" title="Create something new" onclick="document.getElementById('id01').style.display='block'">Create<i class="fa margin-left fa-caret-down"></i></button>
+      <a href="/logout/" class="bar-item button hover-spring-green padding-medium right"><i class="fa fa-sign-out  margin-right"></i>Logout</a>
+   </div>
+   <div id="id01" class="modal">
+      <div class="modal-content persian-blue" style="width: 500px">
+         <div class="container">
+            <span onclick="document.getElementById('id01').style.display='none'" class="button display-topright hover-spring-green">&times;</span>
+            <p class="hover-text-spring-green large">
+               <a style="text-decoration: none;" href="/create/new_book/">  
+               Create book
+               <i class="fa fa-info-circle tooltip" style="margin-left: 250px">
+               <span class="tooltiptext c_font"> Create a new book and add hit in it </span>
+               </i>
+               </a>
+            </p>
+            <hr>
+            <p class="hover-text-spring-green large">
+               <a style="text-decoration: none;" href="/all_books">
+               Hit in book 
+               <i class="fa fa-info-circle tooltip" style="margin-left: 250px">
+               <span class="tooltiptext c_font"> Select a existing book and add hit in it </span>
+               </i>
+               </a>
+            </p>
+            <hr>
+            <p class="hover-text-spring-green large">
+               <a style="text-decoration: none;" href="/create/new_hit/">
+               Create hit 
+               <i class="fa fa-info-circle tooltip" style="margin-left: 250px">
+               <span class="tooltiptext c_font"> Create a random Hit without adding it in any book </span>
+               </i>
+               </a>
+            </p>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- Navbar -->
+<div class="hide-large">
+   <div class="bar persian-blue ">
+      <a href="/home/" class="bar-item button hover-spring-green padding-medium"><i class="fa fa-home margin-right"></i>Home 
+      </a>
+      <button class="padding-medium button hover-spring-green" title="Create something new" onclick="document.getElementById('id0112').style.display='block'">Create<i class="fa margin-left fa-caret-down"></i></button>
+      <a href="/logout/" class="bar-item button hover-spring-green padding-medium right"><i class="fa fa-sign-out  margin-right"></i>Logout</a>
+   </div>
+   <div id="id0112" class="modal">
+      <div class="modal-content persian-blue" style="width: 500px">
+         <div class="container">
+            <span onclick="document.getElementById('id0112').style.display='none'" class="button display-topright hover-spring-green">&times;</span>
+            <p class="hover-text-spring-green large">
+               <a style="text-decoration: none;" href="/create/new_book/" class="dark-persian-blue padding hover-spring-green" style="border-radius: 5px">  
+               Create book </a>
+               <button onclick="myFunction('1')" class="btn2  dark-persian-blue margin-left" style="border-radius: 8px"  >
+               <i class="fa fa-info-circle"></i>
+               </button>
+            <div id="1" class=" hide">
+               <p class="text-spring-green" style="opacity: 0.8">Create a new book and add a new hit in it.</p>
+            </div>
+            </p>
+            <hr>
+            <p class="hover-text-spring-green large">
+               <a style="text-decoration: none;" href="/all_books"  class="dark-persian-blue padding hover-spring-green" style="border-radius: 5px">
+               Hit in book 
+               </a>
+               <button onclick="myFunction('2')" class="btn2  dark-persian-blue margin-left" style="border-radius: 8px"  >
+               <i class="fa fa-info-circle"></i>
+               </button>
+            <div id="2" class=" hide">
+               <p class="text-spring-green" style="opacity: 0.8">Add a hit in a existing book. </p>
+            </div>
+            </p>
+            <hr>
+            <p class="hover-text-spring-green large">
+               <a style="text-decoration: none;" href="/create/new_hit/" class="dark-persian-blue padding hover-spring-green" style="border-radius: 5px">
+               Create hit 
+               </a>
+               <button onclick="myFunction('3')" class="btn2  dark-persian-blue margin-left" style="border-radius: 8px"  >
+               <i class="fa fa-info-circle"></i>
+               </button>
+            <div id="3" class=" hide">
+               <p class="text-spring-green" style="opacity: 0.8">Create a random hit without any book parent. </p>
+            </div>
+            </p>
+         </div>
+      </div>
+   </div>
+</div>
+<script>
+   function myFunction(id) {
+     var x = document.getElementById(id);
+     if (x.className.indexOf("show") == -1) {
+       x.className += " show";
+     } else { 
+       x.className = x.className.replace(" show", "");
+     }
+   }
+</script>

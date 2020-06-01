@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+   <title> hit 2.0 </title>
+   <meta charset="UTF-8">
+   <!-- bg=#242037, upper bg=#332D4F, fonghg = #21EE8B -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- can use  instead of the complex django href method but .... whyy -->
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'hit/styling.css' %}" type='text/css'>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+
+<style>
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 150px;
+  background-color: #242037;
+  color: #21EE8B;
+  text-align: center;
+  border-radius: 6px;
+  padding: 20px 20px;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 1px;
+  left:50px
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+	 pre {
+            overflow-x: auto;
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+            
+         }
+   * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+font-family: 'Source Sans Pro', sans-serif;font-size: 16px}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+body,p,i,h1,h2,h3,h4,h5,h6,.c_font{
+	font-family: 'Lato', sans-serif;
+}
+.c_font{
+	line-height: 25px
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background:#242037 ; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #21EE8B; 
+}
+
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+.grid-hover{
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.grid-hover:hover {filter: brightness(50%);}   	/*html, body, h1, h2, h3, h4, h5, h6 {
+  font-family: "Comic Sans MS", cursive, sans-serif;*/
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+</style>
+   <body class='dark-persian-blue'>
+      <!-- content defines a container for fixed size centered content,
+         and is wrapped around the whole page content, except for the footer in this example -->
+
+<!-- <div class="topnav persian-blue" id="myTopnav">
+  <a href="/home" class="hover-spring-green"><b>Home</b></a>
+  <a href="#news" class="hover-spring-green" >News</a>
+  <a href="#contact" class="hover-spring-green" >Contact</a>
+  <a href="#about" class="hover-spring-green">About</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+ -->
+       <div class="content" style="max-width:1400px">
+         {% block content %}
+         {% endblock %}
+      </div>
+      <!-- <footer class="container padding-16 margin-top persian-blue" style=" position: fixed;bottom: 0;width: 100%;">
+         <button class="button dark-persian-blue padding-large margin-bottom hover-spring-green"> previous</button>
+         <button class="button dark-persian-blue padding-large margin-bottom hover-spring-green"> Next »</button>
+         </footer> -->
+   </body>
+</html>

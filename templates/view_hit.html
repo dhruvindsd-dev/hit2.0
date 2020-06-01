@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% include 'navbar.html'%}
+  <header class="display-container content center" style="max-width:1500px">
+    <img class="image hide-small" src={{hit.img_link}} alt="Me" style="width:100%;height: 700px; object-fit: cover; filter: brightness(55%);opacity: 0.9" >
+    <img class="image hide-large hide-medium" src={{hit.img_link}} alt="Me" style="width:100%;height:500px; object-fit: cover; filter: brightness(40%);opacity: 0.8" >
+    <div class="display-middle padding-large  wide text-light-grey center">
+      <h1 class="hide-medium hide-small xxxlarge" style="font-family: 'Lato', sans-serif; border:2px solid white; padding: 20px"><b>{{hit.title|title}}</b></h1>
+      <h4 class="hide-large wide " style="font-family: 'Lato', sans-serif; border:2px solid white; padding: 20px"><b>{{hit.title|title}}</b></h4>
+    </div>
+    
+  </header>
+  <!-- About Container -->
+  <div class="container">
+    <div class="content custom_content" style="max-width:1000px;">
+      <h5 class="center padding-64" style="font-family: 'lira', sans-serif;" ><span class="tag wide" style="padding:10px"><b>{{hit.s_description|upper}}</b></span></h5>
+      <div style="word-break: break-word">
+            <pre style="font-family: 'Source Sans Pro', sans-serif;
+        ;font-size: 20px; opacity: 0.8">{{hit.content}}</pre></div></div></div>
+        <div class="center">
+          <div class="btn persian-blue hover-spring-green margin-right"  style="border-radius: 10px; margin-bottom: 20px" onclick="window.location='/update/{{hit.id}}'"><i class="fa fa-pencil margin-right" aria-hidden="true"></i>Modify</div>
+          <div class="btn persian-blue hover-red "  style="border-radius: 10px; margin-bottom: 20px" onclick="window.location='/delete/{{hit.id}}/';"><i class="fa fa-trash margin-right" aria-hidden="true"></i>Delete</div>
+          <div class="btn persian-blue hover-spring-green margin-left"  style="border-radius: 10px; margin-bottom: 20px" onclick="window.location='/schedule/{{hit.id}}/';"><i class="fa fa-clock-o margin-right" aria-hidden="true"></i>Schdule</div>
+        </div>
+        {% include 'footer.html'%}
+      {% endblock %}

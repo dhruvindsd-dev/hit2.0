@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+<!-- Header --> 
+{% block content %}
+{% include 'navbar.html'%}
+<header class="container center padding-32 animate-top ">
+   <h1 class="text-spring-green center"><b>HIT 2.0</b></h1>
+   <h5 class="center">Highly informationative<span class="tag" style="margin-left: 10px">text</span></h5>
+   {% load static %}
+   <img class="spin opacity " src='{% static "hit/atom.png" %}' style="width:5%"><br>
+   
+   <input class="input border animate-input dark-persian-blue focus-input" type="search" style="width:20%; max-width: 40%" placeholder="Search..."  id="input_search" onkeyup="search()" >
+</header>
+<!-- Grid -->
+<div class="row">
+   <!-- Post entries -->
+   <div class="col l8 ">
+{% if hits|length is 0 %}
+<h2 class="padding text-spring-green"> You have not created any hit </h2>
+
+{% else %}
+      {% for hit in hits %}
+      <div class="hide-large hide-medium visibility">   <!-- visibility --> 
+         <div class="card-4 l8 margin persian-blue animate-zoom zoom" onclick="location.href='/view/hit/{{hit.id}}';" style="cursor:pointer;">
+            <img src={{hit.img_link}} alt="Nature" style="width:100%;object-fit: cover;filter: brightness(90%);opacity: 0.9">
+            <div class="container persian-blue">
+               <h3 class="text-spring-green to_search"><b>{{hit.title|title}}</b></h3> <!-- to_search -->
+               <p>{{hit.s_description}}</p> <!-- to_search -->
+               <p class="small" style="opacity:0.5">{{hit.created_at}} <br>{{hit.counter}}/{{hit.times}}</p>
+            </div>
+         </div>
+      </div>
+      <div class="hide-small visibility">  <!-- visibility --> 
+         <div class="card-4 l8 margin persian-blue animate-zoom zoom" onclick="location.href='/view/hit/{{hit.id}}';" style="cursor:pointer;">
+            <img src={{hit.img_link}} alt="Nature" style="width:100%; height: 300px;object-fit: cover;filter: brightness(80%);opacity: 0.9">
+            <div class="container persian-blue">
+               <h3 class="text-spring-green to_search"><b>{{hit.title|title}}</b></h3> <!-- to_search -->
+               <p>{{hit.s_description}}</p> <!-- to_search -->
+               <p class="small" style="opacity:0.5">{{hit.created_at}} <br>
+                {% if hit.times == '0' %}
+                Not Scheduled
+                {% else %}
+               {{hit.counter}}/{{hit.times}}</p>
+               {% endif%}
+            </div>
+         </div>
+      </div>
+      {% endfor %}
+      <!-- END POST ENTRIES -->
+   {% endif %}
+   </div>
+   <!-- Books menu -->
+   <div class="col l4 animate-right ">
+      <div class="card margin ">
+         <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"  style="width:100% ;border-top-right-radius:10px; border-top-left-radius:10px ">
+         <div class="container persian-blue" style="border-bottom: 2px solid #21EE8B">
+            <h4>Your books</h4>
+         </div>
+         <ul class="ul hoverable persian-blue" style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px ">
+          {% if books|length is 0%}
+            <li><b>No books</b></li>
+          {% else %}
+            {% for i in books%}
+            <li onclick="location.href='/book/{{i.id}}'" class="padding-16 zoom">
+               <i class="fa fa-circle margin-right tiny"></i>{{ i.title|title}}
+            </li>
+            {% endfor %}
+            {% endif %}
+         </ul>
+      </div>
+      <!-- END BOOKS Menu -->
+   </div>
+   <!-- END GRID -->
+</div>
+<br>
+<script>
+function search() {
+  var input, filter, visibility, to_search, td, i;
+  input = document.getElementById("input_search");
+  filter = input.value.toUpperCase();
+  
+  to_search = document.getElementsByClassName("to_search");
+  visibility = document.getElementsByClassName("visibility");
+   visibility[0].style.display = null;
+
+  for (i = 0; i < to_search.length; i++) {
+    td = to_search[i]
+    if (td) {
+      txtValue = td.textCont || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        visibility[i].style.display = "";
+      } else {
+        visibility[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+
+{% include 'footer.html'%}
+{% endblock %}

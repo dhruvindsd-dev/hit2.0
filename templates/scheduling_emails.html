@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<form class="container dark-persian-blue" method="post" style="max-width:700px"> {% csrf_token %}
+
+  <p><label><h4>For how many times do you want to be reminded.</h4> </label>
+  
+  <input class="input border dark-persian-blue focus-input" required name="times" type="number" placeholder="Enter a number less than 99  " min="1" max="100" id='input1' maxlength="3" onkeyup="display_txt()"></p>
+  
+  <p><label><h4>In how many days do you want to be reminded once ? </h4></label>
+  
+  <input class="input border dark-persian-blue focus-input" required name="period" type="number" min="1" max="30" placeholder="Enter a number less than 30" id="input2" onkeyup="display_txt()"></p>
+
+  	<p><label><h4>Any other messesge you want to send youself</h4></label>
+  <textarea class="input border dark-persian-blue focus-input"  name="custom_message" type="password" maxlength="200" cols=3></textarea></p>
+  <button class="button persian-blue  hover-spring-green card" type="submit">
+          <i class="fa fa-clock-o margin-right"></i> Schedule
+        </button>
+    <br>
+   <p><h4 class="text-spring-green" id="a" style="opacity: 0.7"></h4></p>
+
+</form>
+<script>
+	function display_txt() {
+		var var1, var2, a
+		var1 = document.getElementById('input1').value;
+		var2 = document.getElementById('input2').value;
+		a = document.getElementById('a') ;
+		console.log(var1.length)
+		if (var1.length && var2.length > 0) {
+			console.log('test')
+
+			a.innerHTML = 'You will recieve one email every ' +var2+' days for '+ var1*var2 + ' days.'  
+
+
+		}
+		// body...
+	}
+
+</script>
+
+{% endblock %}
+
+\

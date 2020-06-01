@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- list all books and on click take directly to hit form  -->
+<div class="container padding text-spring-green animate-top">
+   <h2> Select a book to add hit in it </h2>
+</div>
+<div  style="width: 70%; margin-left:50px">
+   {% for book in books %}
+   <div class=" margin persian-blue animate-zoom zoom"  onclick="location.href='/create/new_hit/{{ book.id }}';" style="cursor:pointer;">
+      <div class="container">
+         <h4 class="text-spring-green"><b>{{ book.title }}</b></h4>
+         <h6>{{ book.description }}</h6>
+      </div>
+   </div>
+   {% endfor %}
+</div>
+{% endblock %}

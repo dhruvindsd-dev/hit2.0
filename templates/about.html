@@ -1,0 +1,99 @@
+{% extends 'base.html'%}
+{% block content %}
+<!-- Header with full-height image -->
+<header class=" display-container " id="home">
+   <img style = "background-position: center;background-size: cover;height:100vh;object-fit: cover; width: 100%;filter: brightness(20%);" src="https://images.unsplash.com/photo-1532184851574-c63dfb9f4e78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
+   <div class="display-left text-white" style="padding:48px">
+      <span class="xxxlarge hide-small ">  Remember the essential stuff using our services.</span><br>
+      <span class="xxlarge hide-large hide-medium">Remember the essential stuff using our services.</span><br>
+      <p><a href="/login" class="button white hover-spring-green padding-large large margin-top ">Login</a>
+         <a href="/signup" class="button white hover-spring-green padding-large large margin-top margin-left ">Signup</a>
+      </p>
+   </div>
+</header>
+<div class="row-padding persian-blue padding-64 container">
+   <div class="content">
+      <div class="twothird">
+         <h2 class="text-spring-green">We forget important stuff ... </h2>
+         <h6 class="padding-32" style="opacity:0.8">Our brains aren't made to remember everything that we encounter. Unless you're one of the rare individuals who have a photographic memory, its likely that the details about the content you consume fade quickly.  How often do you recall reading an incredible book or a podcast which you thought could change your life forever but after a week or you were back where you started. </h6>
+         <p style="opacity:0.8">Think of it like taking a walk through the woods. At first there is no path, but if you take the same route every day, eventually, you’ll create a trail. You’ll be able to move quickly and easily in a place where you used to have to move slowly. Your brain handles memory like this too. You want to build a well-worn path for your neurons.</p>
+      </div>
+      <div class="third center opacity">
+         <i class="fa fa-user-times padding-64 text-spring-green" style="font-size: 200px"></i>
+      </div>
+   </div>
+</div>
+<!-- Second Grid -->
+<div class="row-padding padding-64 container">
+   <div class="content">
+      <div class="third  center">
+         <i class="fa fa-refresh  text-spring-green padding-64 hide-small" style="font-size: 200px"></i>
+      </div>
+      <div class="twothird">
+         <h2 class="text-spring-green">How can we help  ? </h2>
+         <h6 class="padding-32" style="opacity: 0.8">Two possible solutions are Encoding and Repetition. <br>
+         <ul>
+
+            <li>
+            The first step to creating a memory is called encoding: It's when you notice an event or come across a piece of information and your brain consciously perceives the visuals, images,  or other sensory details involved.
+          </li>
+
+            <li>
+            To retrieve a memory, your brain "replays" or revisits the nerve pathways created when the memory was formed. Repeatedly recalling information helps strengthen those connections and your memories, which is why techniques, like reviewing your notes or using flashcards, help you retain information.
+          </li>
+          </ul>
+         </h6>
+         <p style="opacity:0.8 ">This is where we play our role. Using our services you can create notes, add pictures, schedule each note to remind you to revise through it at paticular intervals and times. You can also create a enitre new class and add your notes in it. Its as simple as it gets</p>
+      </div>
+   </div>
+</div>
+
+<div class="row-padding persian-blue padding-64 container">
+   <div class="content">
+      <div class="twothird">
+         <h2 class="text-spring-green">Technologies used : </h2>
+         <h6 class="padding-32" style="opacity:0.8">
+            <ul>
+               <li>
+                  Django 
+               </li>
+
+               <li>
+                  Python  
+               </li>
+
+               <li>
+                  Urllib3  
+               </li>
+
+               <li>
+                  Unsplash api  
+               </li>
+
+               <li>
+                  Javascript  
+               </li>
+
+               <li>
+                  Beautiful Soup   
+               </li>
+
+               <li>
+                 Html
+               </li>
+               <li>
+                  Css  
+               </li>
+            </ul>
+         </h6>
+      </div>
+      <div class="third center opacity">
+         <i class="fa fa-cogs hide-small hide-meduim padding-64 text-spring-green" style="font-size: 200px"></i>
+      </div>
+   </div>
+</div>
+<div class="container black center opacity padding-64">
+   <h1 class="margin xlarge" style="opacity: 0.8">The art of Memory is how you remember stuff</h1>
+</div>
+{% include 'footer.html'%}
+{% endblock %}
